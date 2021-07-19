@@ -1,3 +1,3 @@
-module github.com/Knowckx/asutime
+module github.com/Knowckx/asukatime
 
 go 1.16
