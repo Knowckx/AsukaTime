@@ -66,3 +66,13 @@ func GetLastMonthRange() *TimeRange {
 	ti := time.Now().AddDate(0, -1, 0)
 	return GetMonthRange(ti)
 }
+
+// GetYearRange 1945-10-10 12:12:12 --> [1945-01-01 00:00:00, 1945-12-31 23:59:59]
+func GetYearRange(ti time.Time) *TimeRange {
+	st := time.Date(ti.Year(), time.January, 1, 0, 0, 0, 0, ti.Location())
+	end := st.AddDate(1, 0, 0).Add(BackOffset)
+	tr := TimeRange{
+		st, end,
+	}
+	return &tr
+}

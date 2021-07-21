@@ -27,3 +27,9 @@ func Test_GetMonthRange_Now(t *testing.T) {
 	tr := GetMonthRange(ti)
 	fmt.Println(tr)
 }
+
+func Test_GetYearRange_Now(t *testing.T) {
+	ti := time.Now()
+	tr := GetYearRange(ti)
+	fmt.Println(tr)
+}

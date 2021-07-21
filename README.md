@@ -1,8 +1,41 @@
 # AsukaTime
-Time Utils:  
+
+## English
+### Time Utils:  
 generate Time Range of day/week/month
 
-## 获取一个时间点所在的时间范围
+> go get -u github.com/Knowckx/asukatime
+- Get time range of one day
+```
+input := time.Now()  // 2021-07-20 17:37:21
+tr := asukatime.GetDayRange(input)
+fmt.Println(tr.Start)  // 2021-07-20 00:00:00
+fmt.Println(tr.End)  // 2021-07-20 23:59:59
+```
+
+- Get time range of week (monday is the first day of week)
+```
+input := time.Now()  // 2021-07-20 17:37:21
+tr := asukatime.GetWeekRange(input)
+fmt.Println(tr)  
+// [2021-07-19 00:00:00, 2021-07-25 23:59:59.999]
+```
+
+- APIs
+
+|  API   | time  |
+|  ----  | ----  |
+| GetDayRange  | day |
+| GetWeekRange  | week |
+| GetMonthRange  | month |
+| GetYearRange  | Year |
+
+---
+
+
+
+## CN
+### 获取一个时间点所在的时间范围
 工作中经常遇到这样的需求，生成`当天`，`当周`，`当月`的时间范围，然后拿这个时间范围作为参数去查API，查数据库。
 
 我把常见的时间范围实现了一下，欢迎大家直接调（懒惰是程序员进步的源泉233）
