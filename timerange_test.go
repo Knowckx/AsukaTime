@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"testing"
 	"time"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func Test_GetDayRange_Now(t *testing.T) {
@@ -32,4 +34,12 @@ func Test_GetYearRange_Now(t *testing.T) {
 	ti := time.Now()
 	tr := GetYearRange(ti)
 	fmt.Println(tr)
+}
+
+func Test_NewTime(t *testing.T) {
+	in := "1945-10-10"
+	// in := "1945-10-10 12:12:12"
+	ti, err := NewTime(in)
+	assert.Nil(t, err)
+	fmt.Println(ti)
 }
