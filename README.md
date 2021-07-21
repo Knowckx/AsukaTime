@@ -3,8 +3,25 @@
 ## English
 ### Time Utils:  
 generate Time Range of day/week/month
-
 > go get -u github.com/Knowckx/asukatime
+
+- NewTime() return time.Time with string input
+```
+ti1, err := NewTime("2021-07-20") 
+if err != nil {
+    fmt.Println(err)
+    return
+}  
+fmt.Println(ti1) // ti1 is time.Time 2021-07-20 00:00:00
+
+ti2, err := NewTime("2021-07-20 11:11:11") 
+if err != nil {
+    fmt.Println(err)
+    return
+}  
+fmt.Println(ti2) // ti2 is time.Time 2021-07-20 11:11:11
+```
+
 - Get time range of one day
 ```
 input := time.Now()  // 2021-07-20 17:37:21
