@@ -15,11 +15,16 @@ fmt.Println(tr.End)  // 2021-07-20 23:59:59
 
 - Get time range of week (monday is the first day of week)
 ```
-input := time.Now()  // 2021-07-20 17:37:21
+input, err := NewTime("2021-07-20") // input is time.Time 2021-07-20 00:00:00
+if err != nil {
+    fmt.Println(err)
+    return
+}  
 tr := asukatime.GetWeekRange(input)
-fmt.Println(tr)  
-// [2021-07-19 00:00:00, 2021-07-25 23:59:59.999]
+fmt.Println(tr) // [2021-07-19 00:00:00, 2021-07-25 23:59:59.999]
 ```
+
+
 
 - APIs
 
@@ -58,10 +63,13 @@ fmt.Println(tr.End)  // 2021-07-20 23:59:59
 
 - 获取某周的时间范围（默认周一是第一天）
 ```
-input := time.Now()  // 2021-07-20 17:37:21
+input, err := NewTime("2021-07-20") // input is time.Time 2021-07-20 00:00:00
+if err != nil {
+    fmt.Println(err)
+    return
+}  
 tr := asukatime.GetWeekRange(input)
-fmt.Println(tr)  
-// [2021-07-19 00:00:00, 2021-07-25 23:59:59.999]
+fmt.Println(tr) // [2021-07-19 00:00:00, 2021-07-25 23:59:59.999]
 ```
 
 - 获取某月的时间范围
