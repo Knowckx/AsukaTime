@@ -43,3 +43,11 @@ func Test_NewTime(t *testing.T) {
 	assert.Nil(t, err)
 	fmt.Println(ti)
 }
+
+func Test_ToUnix(t *testing.T) {
+	in := "2021-07-30"
+	ti, err := NewTime(in)
+	assert.Nil(t, err)
+	ra := GetMonthRange(ti.UTC()).ToUnix()
+	fmt.Println(ra)
+}

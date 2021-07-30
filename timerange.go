@@ -19,6 +19,18 @@ func (s TimeRange) String() string {
 	return out
 }
 
+func (s *TimeRange) ToUnix() *TimeRangeUnix {
+	out := &TimeRangeUnix{}
+	out.Start = s.Start.Unix()
+	out.End = s.End.Unix()
+	return out
+}
+
+type TimeRangeUnix struct {
+	Start int64
+	End   int64
+}
+
 // GetDayRange 1945-10-10 12:12:12 --> [1945-10-10 00:00:00, 1945-10-10 23:59:59]
 func GetDayRange(t time.Time) *TimeRange {
 	tiStart := GetDayStart(t)
