@@ -9,6 +9,16 @@ import (
 const FormatLayoutDate = "2006-01-02"
 const FormatLayoutTime = "2006-01-02 15:04:05"
 
+var timeZone = time.Local
+
+func UseUtc() {
+	timeZone = time.UTC
+}
+
+func UseLocal() {
+	timeZone = time.Local
+}
+
 // NewTime accept time string like "2006-01-02" or "2006-01-02 15:04:05"
 func NewTime(in string) (time.Time, error) {
 	layout, err := GetTimeLayout(in)

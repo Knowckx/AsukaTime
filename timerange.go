@@ -43,7 +43,7 @@ func GetDayRange(t time.Time) *TimeRange {
 
 // GetDayStart 1945-10-10 12:12:12 --> 1945-10-10 00:00:00
 func GetDayStart(t time.Time) time.Time {
-	tiStart := time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, t.Location())
+	tiStart := time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, timeZone)
 	return tiStart
 }
 
