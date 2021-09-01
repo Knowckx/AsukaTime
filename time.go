@@ -9,7 +9,7 @@ import (
 const FormatLayoutDate = "2006-01-02"
 const FormatLayoutTime = "2006-01-02 15:04:05"
 
-var timeZone = time.Local
+var timeZone = time.UTC
 
 func UseUtc() {
 	timeZone = time.UTC
