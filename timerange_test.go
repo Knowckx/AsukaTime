@@ -51,3 +51,11 @@ func Test_ToUnix(t *testing.T) {
 	ra := GetMonthRange(ti.UTC()).ToUnix()
 	fmt.Println(ra)
 }
+
+// [2021-03-01 00:00:00 +0000 UTC 2021-04-01 00:00:00 +0000 UTC 2021-05-01 00:00:00 +0000 UTC]
+func Test_GenMonthly(t *testing.T) {
+	monthStart := 3
+	monthEnd := 5
+	tis := GenMonthList(monthStart, monthEnd)
+	fmt.Println(tis)
+}

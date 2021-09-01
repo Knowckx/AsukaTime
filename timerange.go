@@ -88,3 +88,14 @@ func GetYearRange(ti time.Time) *TimeRange {
 	}
 	return &tr
 }
+
+func GenMonthList(from, end int) []time.Time {
+	outTime := []time.Time{}
+	now := time.Now()
+	for i := from; i <= end; i++ {
+		ti := time.Date(now.Year(), time.Month(i), now.Day(), 0, 0, 0, 0, time.UTC)
+		outTime = append(outTime, ti)
+
+	}
+	return outTime
+}
