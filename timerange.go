@@ -31,6 +31,12 @@ type TimeRangeUnix struct {
 	End   int64
 }
 
+// GetDayStart 1945-10-10 12:12:12 --> 1945-10-10 00:00:00
+func GetDayStart(t time.Time) time.Time {
+	tiStart := time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, timeZone)
+	return tiStart
+}
+
 // GetDayRange 1945-10-10 12:12:12 --> [1945-10-10 00:00:00, 1945-10-10 23:59:59]
 func GetDayRange(t time.Time) *TimeRange {
 	tiStart := GetDayStart(t)
@@ -41,10 +47,11 @@ func GetDayRange(t time.Time) *TimeRange {
 	return tr
 }
 
-// GetDayStart 1945-10-10 12:12:12 --> 1945-10-10 00:00:00
-func GetDayStart(t time.Time) time.Time {
-	tiStart := time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, timeZone)
-	return tiStart
+// GetMonthRange 1945-10-10 12:12:12 --> [1945-09-01 00:00:00, 1945-09-30 23:59:59]
+func GetYesterdayRange() *TimeRange {
+	dayStart := GetDayStart(time.Now())
+	ti := dayStart.AddDate(0, 0, -1)
+	return GetDayRange(ti)
 }
 
 // GetWeekRange 1945-10-10 12:12:12 --> [1945-10-08 00:00:00, 1945-10-14 23:59:59]

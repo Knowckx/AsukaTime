@@ -59,3 +59,8 @@ func Test_GenMonthly(t *testing.T) {
 	tis := GenMonthList(monthStart, monthEnd)
 	fmt.Println(tis)
 }
+
+func Test_GetYesterdayRange(t *testing.T) {
+	tis := GetYesterdayRange()
+	fmt.Println(tis)
+}
