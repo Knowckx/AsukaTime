@@ -100,7 +100,7 @@ func GenMonthList(from, end int) []time.Time {
 	outTime := []time.Time{}
 	now := time.Now()
 	for i := from; i <= end; i++ {
-		ti := time.Date(now.Year(), time.Month(i), now.Day(), 0, 0, 0, 0, time.UTC)
+		ti := time.Date(now.Year(), time.Month(i), 1, 0, 0, 0, 0, time.UTC)
 		outTime = append(outTime, ti)
 
 	}
