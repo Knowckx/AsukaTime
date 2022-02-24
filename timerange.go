@@ -106,3 +106,15 @@ func GenMonthList(from, end int) []time.Time {
 	}
 	return outTime
 }
+
+func GenDayTimeList(from, end time.Time) []time.Time {
+	outTime := []time.Time{}
+	now := from
+	endTime := time.Date(end.Year(), end.Month(), end.Day(), 0, 0, 0, 1, time.UTC)
+	for now.Before(endTime) {
+		ti := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, time.UTC)
+		outTime = append(outTime, ti)
+		now = ti.AddDate(0, 0, 1)
+	}
+	return outTime
+}

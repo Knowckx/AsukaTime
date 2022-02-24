@@ -64,3 +64,10 @@ func Test_GetYesterdayRange(t *testing.T) {
 	tis := GetYesterdayRange()
 	fmt.Println(tis)
 }
+
+func Test_GenDayTimeList(t *testing.T) {
+	from, _ := NewTime("2021-07-30")
+	end, _ := NewTime("2021-08-10")
+	tis := GenDayTimeList(from, end)
+	fmt.Println(tis)
+}
